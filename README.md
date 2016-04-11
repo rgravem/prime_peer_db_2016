@@ -15,7 +15,7 @@ Use it. Love it.
 Create a basic NodeJS application with an express server. Set up a router called index.js (for your home page) and also a router called assignment.js (for your assignment routes).
 
 ###Get connected to your database.
-Put the following into your server side app.js file.
+Put the following into your server side server.js file.
 
 ``` JavaScript
 var mongoose = require('mongoose');
