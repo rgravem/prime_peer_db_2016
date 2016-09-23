@@ -32,6 +32,15 @@ app.put('/search', function (req,res) {
     }
   });
 });
+
+app.delete('/delete', function( req, res){
+  console.log('delete post:', req.body);
+  Mouse.findByIdAndRemove({"assignment_number":req.body.assignment_number}, function(){
+    console.log('delete attempted', req.body.assignment_number);
+    res.send(200);
+  });
+
+});
 app.post('/addAssignment', function(req, res){
   console.log('hit addAssignment post',req.body);
 

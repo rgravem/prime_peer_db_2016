@@ -39,7 +39,29 @@ $.ajax({
   var deleteButton = function(data){
     console.log('deletebutton clicked',data);
     };
+
+  $('body').on('click', '.deleteButton', function(){
+    var deleteMe = $(this).attr('data');
+    console.log('delete clicked at:', deleteMe);
+    deleteAssignment(deleteMe);
+  });
 });//docready
+
+var deleteAssignment = function(selected){
+  console.log('in delete assign', selected);
+  var objectToSend = {
+    assignment_number: selected
+  };
+  console.log('object to delete:', objectToSend);
+  $.ajax({
+    type: 'DELETE',
+    url: '/delete',
+    data: objectToSend,
+    success: function(data){
+      console.log('delete success');
+    }
+  });
+};
 
 var globalArray=[];
 var myApp = angular.module('myApp',[]);
