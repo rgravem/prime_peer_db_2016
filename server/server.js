@@ -21,7 +21,17 @@ app.get('/',function(req, res){
   console.log(">>>>newest base url hit<<<<<<<");
   res.sendFile(path.resolve('public/index.html'));
 });//app.get
-
+app.put('/search', function (req,res) {
+  var query= req.body;
+  console.log(req.body);
+  Mouse.find({assignment_number:req.body.id}, function(err, results){
+    if (err) {
+      console.log(err);
+    }else{
+      res.send(results);
+    }
+  });
+});
 app.post('/addAssignment', function(req, res){
   console.log('hit addAssignment post',req.body);
 

@@ -9,10 +9,14 @@
   </head>
   <body ng-app = 'myApp'>
     <div class="inputs">
+      <input id ="searchIn" type="text" name="name" value=""placeholder="Search assignment number">
+      <button id ="searchBtn" type="button" name="button">search</button> <br>
+
       <input id ="numberIn" type="text" name="name" value=""placeholder="Assignment Number">
       <input id ="nameIn" type="text" name="name" value=""placeholder="Name">
       <input id ="scoreIn" type="text" name="name" value=""placeholder="Score">
       <button id ="addBtn" type="button" name="button">add</button>
+
     </div>
     <table ng-controller = "assignments" id="outputDiv">
       <tr>
@@ -41,5 +45,9 @@
     </tr>
 
     </table>
+    <div id = "searchResults">
+      
+
+    </div>
   </body>
 </html>

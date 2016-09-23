@@ -20,6 +20,22 @@ $.ajax({
 
 });//ajax call
   });//addBtn onclick
+  $('#searchBtn').on('click',function(){
+    console.log('search button works');
+    var objectToSend ={
+      id:$('#searchIn').val()
+    };
+    $.ajax({
+        type:'PUT',
+        url:'/search',
+        data:objectToSend,
+        success:function(data){
+          console.log('success function in the searchbutton click',data);
+          $('#searchResults').html('<h5>'+data[0].assignment_number+' '+data[0].student_name+' '+data[0].score+'</h5>');
+        }
+
+    });//ajax call
+  });//search on click
 });//docready
 
 var globalArray=[];
