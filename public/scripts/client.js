@@ -36,6 +36,9 @@ $.ajax({
 
     });//ajax call
   });//search on click
+  var deleteButton = function(data){
+    console.log('deletebutton clicked',data);
+    };
 });//docready
 
 var globalArray=[];

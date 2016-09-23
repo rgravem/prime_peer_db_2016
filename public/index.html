@@ -31,6 +31,7 @@
       </th>
 
 
+
     </tr>
     <tr ng-repeat = "x in dataToDom">
       <td class="column">
@@ -42,11 +43,14 @@
       <td class="column">
         {{x.score}}
       </td>
+      <td>
+        <button  class="deleteButton" type="button" name="button">delete</button>
+      </td>
     </tr>
 
     </table>
     <div id = "searchResults">
-      
+
 
     </div>
   </body>
