@@ -31,7 +31,7 @@ $.ajax({
         data:objectToSend,
         success:function(data){
           console.log('success function in the searchbutton click',data);
-          $('#searchResults').html('<h5>'+data[0].assignment_number+' '+data[0].student_name+' '+data[0].score+'</h5>');
+          $('#searchResults').html('<h3>Search Results:</h3>' + '<p>Assignment number: ' + data[0].assignment_number + '<br>Student name: ' + data[0].student_name + '<br>Score: ' +data[0].score+'</p>');
         }
 
     });//ajax call
