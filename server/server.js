@@ -9,7 +9,7 @@ mongoose.connect(mongoURI);
 
 var port = process.env.PORT || 3000;
 
-var Mouse = require('../model/assignments.js');
+// var Mouse = require('../model/assignments.js');
 
 app.use(bodyParser.json());
 
@@ -18,36 +18,17 @@ app.listen(port, function(){
 });
 
 
-app.get('/', function(req, res){
-  console.log('base url hit');
-  Mouse.find({}, function(err, results){
-    if (err) {
-      console.log(err);
-    }else{
-      res.send(results);
-    }
-  });
-});
+var userRouter = require('../routers/userRouter');
 
-app.post('/addAssignment', function(req, res){
-  console.log('hit addAssignment post');
+// use routers
+app.use('/', userRouter);
 
-  var sentAssignment = req.body;
+app.get('/test/:id?', function(req, res){
+  console.log('in test route');
 
-  var newAssignment = new Mouse({
-    assignment_number: sentAssignment.assignment_number,
-    student_name: sentAssignment.student_name,
-    score: sentAssignment.score,
-    date_completed: sentAssignment.date_completed
-  });
+  console.log('req.body =', req.body);
+  console.log('req.query =', req.query); // localhost:3000/test?q=
+  console.log('req.params =', req. params); // localhost:300/test/id
 
-  newAssignment.save(function(err){
-    if(err){
-    console.log(err);
-    res.sendStatus(500);
-    }else{
-      console.log('successfully created assignment');
-      res.sendStatus(200);
-  }
-  });
+  res.send('ok');
 });
