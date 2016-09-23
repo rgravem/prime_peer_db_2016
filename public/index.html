@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <meta charset="utf-8">
-    <script src="vendors/jquery-3.1.0.min.js" charset="utf-8"></script>
+    <!-- <script src="vendors/jquery-3.1.0.min.js" charset="utf-8"></script> -->
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
     <title></title>
   </head>
-  <body>
-    <div id="outputDiv"></div>
+  <body ng-app = 'myApp'>
+    <table ng-controller = "assignments" id="outputDiv">
+      <tr>
+        <th class="column">
+          Assignment Number
+        </th>
+      <th class="column">
+        Student Name
+      </th class="column">
+      <th>
+        Student Score
+      </th>
+
+
+    </tr>
+    <tr ng-repeat = "x in dataToDom">
+      <td class="column">
+        {{x.assignment_number}}
+      </td>
+      <td class="column">
+        {{x.student_name}}
+      </td>
+      <td class="column">
+        {{x.score}}
+      </td>
+    </tr>
+
+    </table>
   </body>
 </html>
